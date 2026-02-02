@@ -1,0 +1,173 @@
+[
+  {
+    "id": "Q1",
+    "question": "Which subscription plan generates the highest total revenue and why?",
+    "expected_metrics": [
+      "total_revenue_by_plan"
+    ],
+    "expected_insights": [
+      "long-term plans generate higher revenue",
+      "lower churn leads to higher lifetime value"
+    ],
+    "forbidden_insights": [
+      "basic plan generates the highest revenue"
+    ]
+  },
+  {
+    "id": "Q2",
+    "question": "How has monthly revenue changed over time, and what are the main drivers?",
+    "expected_metrics": [
+      "monthly_revenue_trend"
+    ],
+    "expected_insights": [
+      "revenue is stable or increasing",
+      "long-term plans stabilize revenue"
+    ],
+    "forbidden_insights": [
+      "revenue has no clear pattern"
+    ]
+  },
+  {
+    "id": "Q3",
+    "question": "Which user segment contributes most to revenue?",
+    "expected_metrics": [
+      "revenue_by_segment"
+    ],
+    "expected_insights": [
+      "long-tenure users contribute more revenue",
+      "enterprise or pro users are high value"
+    ],
+    "forbidden_insights": [
+      "new users are the highest revenue segment"
+    ]
+  },
+  {
+    "id": "Q4",
+    "question": "What is the overall churn rate, and how does it vary by plan?",
+    "expected_metrics": [
+      "overall_churn_rate",
+      "churn_rate_by_plan"
+    ],
+    "expected_insights": [
+      "basic plan has the highest churn",
+      "enterprise plan has the lowest churn"
+    ],
+    "forbidden_insights": [
+      "churn is the same across all plans"
+    ]
+  },
+  {
+    "id": "Q5",
+    "question": "Why did users churn, and what common patterns do churned users share?",
+    "expected_metrics": [
+      "average_usage_churned_users",
+      "average_tenure_churned_users"
+    ],
+    "expected_insights": [
+      "low usage is a major churn driver",
+      "short-tenure users churn more"
+    ],
+    "forbidden_insights": [
+      "churn is random"
+    ]
+  },
+  {
+    "id": "Q6",
+    "question": "Which users are at highest risk of churning early?",
+    "expected_metrics": [
+      "early_churn_rate"
+    ],
+    "expected_insights": [
+      "new users with low engagement are high risk",
+      "basic plan users churn earlier"
+    ],
+    "forbidden_insights": [
+      "long-term users are high risk"
+    ]
+  },
+  {
+    "id": "Q7",
+    "question": "How does product usage correlate with churn?",
+    "expected_metrics": [
+      "usage_vs_churn"
+    ],
+    "expected_insights": [
+      "higher usage correlates with lower churn"
+    ],
+    "forbidden_insights": [
+      "usage has no relationship with churn"
+    ]
+  },
+  {
+    "id": "Q8",
+    "question": "Who are the most engaged users, and what plans do they use?",
+    "expected_metrics": [
+      "top_usage_users"
+    ],
+    "expected_insights": [
+      "most engaged users are on pro or enterprise plans"
+    ],
+    "forbidden_insights": [
+      "most engaged users are evenly distributed across plans"
+    ]
+  },
+  {
+    "id": "Q9",
+    "question": "Which subscription plan should be promoted more to increase long-term revenue?",
+    "expected_metrics": [
+      "lifetime_value_by_plan"
+    ],
+    "expected_insights": [
+      "long-term plans should be promoted",
+      "lower churn plans drive higher LTV"
+    ],
+    "forbidden_insights": [
+      "high churn plans should be promoted"
+    ]
+  },
+  {
+    "id": "Q10",
+    "question": "Is price a factor in churn, and for which segment?",
+    "expected_metrics": [
+      "churn_vs_price"
+    ],
+    "expected_insights": [
+      "early users are more price sensitive",
+      "long-term users are less price sensitive"
+    ],
+    "forbidden_insights": [
+      "price has no impact on churn"
+    ]
+  },
+  {
+    "id": "Q11",
+    "question": "What actions would reduce churn by at least 10%?",
+    "expected_metrics": [
+      "early_churn_contribution"
+    ],
+    "expected_insights": [
+      "improve onboarding for new users",
+      "encourage early engagement",
+      "promote long-term contracts"
+    ],
+    "forbidden_insights": [
+      "no action needed"
+    ]
+  },
+  {
+    "id": "Q12",
+    "question": "Summarize the overall business health of the platform.",
+    "expected_metrics": [
+      "revenue_summary",
+      "churn_summary"
+    ],
+    "expected_insights": [
+      "business is stable",
+      "main risk is early churn",
+      "growth opportunity is retention"
+    ],
+    "forbidden_insights": [
+      "business health cannot be determined"
+    ]
+  }
+]
