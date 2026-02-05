@@ -1,9 +1,8 @@
-const OpenAI = require("openai");
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 require("dotenv").config();
 
-const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
-});
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
 /**
  * LLM Planner:
@@ -48,7 +47,7 @@ A question is SUPPORTED if:
 - Required data can be obtained using these tools
 - Explanation can be derived from tool outputs
 
-Response format (STRICT JSON ONLY):
+Response format (STRICT JSON ONLY, no markdown):
 
 {
   "supported": true | false,
@@ -62,16 +61,21 @@ Response format (STRICT JSON ONLY):
 
   const userPrompt = `User question: "${question}"`;
 
-  const response = await client.chat.completions.create({
-    model: "gpt-4o-mini",
-    messages: [
-      { role: "system", content: systemPrompt },
-      { role: "user", content: userPrompt }
+  const result = await model.generateContent({
+    contents: [
+      {
+        role: "user",
+        parts: [{ text: systemPrompt + "\n\n" + userPrompt }]
+      }
     ],
-    temperature: 0
+    generationConfig: {
+      temperature: 0,
+      responseMimeType: "application/json"
+    }
   });
 
-  return JSON.parse(response.choices[0].message.content);
+  const response = result.response.text();
+  return JSON.parse(response);
 }
 
 module.exports = { llmPlanQuestion };

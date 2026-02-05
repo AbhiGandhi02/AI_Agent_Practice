@@ -14,7 +14,7 @@ services:
         value: production
       - key: PORT
         value: 3000
-      - key: OPENAI_API_KEY
+      - key: GEMINI_API_KEY
         sync: false  # Set this in Render dashboard
       - key: DATABASE_URL
         fromDatabase:

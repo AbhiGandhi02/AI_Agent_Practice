@@ -1,8 +1,7 @@
-const OpenAI = require("openai");
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
-});
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
 /**
  * Explainer:
@@ -36,16 +35,19 @@ ${JSON.stringify(data, null, 2)}
 Explain the answer.
 `;
 
-  const response = await client.chat.completions.create({
-    model: "gpt-4o-mini",
-    messages: [
-      { role: "system", content: systemPrompt },
-      { role: "user", content: userPrompt }
+  const result = await model.generateContent({
+    contents: [
+      {
+        role: "user",
+        parts: [{ text: systemPrompt + "\n\n" + userPrompt }]
+      }
     ],
-    temperature: 0.2
+    generationConfig: {
+      temperature: 0.2
+    }
   });
 
-  return response.choices[0].message.content;
+  return result.response.text();
 }
 
 module.exports = { explainResults };

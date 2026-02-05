@@ -18,8 +18,8 @@ const config = {
     rateLimitWindowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS, 10) || 15 * 60 * 1000, // 15 minutes
     rateLimitMax: parseInt(process.env.RATE_LIMIT_MAX, 10) || 100,
 
-    // OpenAI
-    openaiApiKey: process.env.OPENAI_API_KEY,
+    // Gemini AI
+    geminiApiKey: process.env.GEMINI_API_KEY,
 
     // Database
     databaseUrl: process.env.DATABASE_URL,

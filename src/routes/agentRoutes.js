@@ -12,7 +12,7 @@ const router = express.Router();
  * 
  * Main agent endpoint with:
  * - Input validation
- * - Stricter rate limiting (20 req/min for OpenAI calls)
+ * - Stricter rate limiting (20 req/min for AI calls)
  * - Async error handling
  */
 router.post(

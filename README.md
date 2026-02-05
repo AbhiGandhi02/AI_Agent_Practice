@@ -6,8 +6,8 @@ An intelligent analytics agent that answers business questions about subscriptio
 
 ### Prerequisites
 - Node.js 20+
-- PostgreSQL database
-- OpenAI API key
+- PostgreSQL database (or Supabase)
+- Gemini API key (free at https://aistudio.google.com/apikey)
 
 ### Installation
 
@@ -25,7 +25,7 @@ cp .env.example .env
 
 # Setup database
 psql -d your_db -f db/schema.sql
-node scripts/seed.js
+npm run seed
 
 # Start server
 npm run dev
@@ -56,7 +56,7 @@ npm test
 # With coverage
 npm run test:coverage
 
-# Integration tests (requires OpenAI API)
+# Integration tests (requires Gemini API key)
 npm run test:integration
 ```
 
@@ -65,7 +65,7 @@ npm run test:integration
 ```bash
 # Build and run
 docker build -t ada-agent .
-docker run -p 3000:3000 -e OPENAI_API_KEY=your-key ada-agent
+docker run -p 3000:3000 -e GEMINI_API_KEY=your-key -e DATABASE_URL=your-db-url ada-agent
 
 # With docker-compose (includes PostgreSQL)
 docker-compose up
@@ -77,7 +77,7 @@ docker-compose up
 
 1. Fork this repository
 2. Connect to Render: https://render.com/deploy
-3. Set `OPENAI_API_KEY` in environment variables
+3. Set `GEMINI_API_KEY` in environment variables
 4. Deploy!
 
 ### Environment Variables
@@ -87,7 +87,7 @@ docker-compose up
 | `NODE_ENV` | Environment | development |
 | `PORT` | Server port | 3000 |
 | `DATABASE_URL` | PostgreSQL connection string | - |
-| `OPENAI_API_KEY` | OpenAI API key | - |
+| `GEMINI_API_KEY` | Google Gemini API key | - |
 | `CORS_ORIGINS` | Allowed origins | localhost |
 | `RATE_LIMIT_MAX` | Requests per window | 100 |
 

@@ -31,7 +31,7 @@ const rateLimiter = rateLimit({
 });
 
 /**
- * Stricter rate limiter for expensive operations (OpenAI calls)
+ * Stricter rate limiter for expensive operations (AI API calls)
  */
 const apiRateLimiter = rateLimit({
     windowMs: 60 * 1000, // 1 minute
