@@ -6,7 +6,7 @@ CREATE TABLE users (
   signup_date DATE NOT NULL,
   gender VARCHAR(10),
   seniority_level BOOLEAN,
-  country VARCHAR(50),
+  country VARCHAR(100),
   tenure_months INT
 );
 
@@ -42,7 +42,7 @@ CREATE TABLE payments (
   subscription_id UUID NOT NULL,
   amount DECIMAL(10,2) NOT NULL,
   payment_date DATE NOT NULL,
-  payment_method VARCHAR(20),
+  payment_method VARCHAR(100),
   FOREIGN KEY (subscription_id) REFERENCES subscriptions(subscription_id)
 );
 

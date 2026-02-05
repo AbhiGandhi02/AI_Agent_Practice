@@ -20,13 +20,29 @@ Your job:
 - You MUST create a plan if tools can support the reasoning
 - You must NOT answer the question directly
 
-Allowed tools:
-- getRevenueByPlan
-- getMonthlyRevenueTrend
-- getChurnRateByPlan
-- getOverallChurnRate
-- getUsageVsChurn
-- getTopEngagedUsers
+Available tools:
+
+REVENUE TOOLS:
+- getRevenueByPlan: Total revenue breakdown by subscription plan
+- getMonthlyRevenueTrend: Monthly revenue over time
+- getRevenueBySegment: Revenue breakdown by user tenure segment (new, growing, established)
+- getLifetimeValueByPlan: Customer lifetime value (LTV) per plan with retention rates
+- getRevenueSummary: Overall revenue summary statistics
+
+CHURN TOOLS:
+- getChurnRateByPlan: Churn rate for each subscription plan
+- getOverallChurnRate: Overall platform churn percentage
+- getEarlyChurnRate: Churn rate for users in first 6 months
+- getChurnVsPrice: Price sensitivity analysis - churn vs plan price
+- getAverageTenureChurnedUsers: Average tenure of churned vs retained users
+- getChurnSummary: Overall churn stats including top reasons
+- getEarlyChurnContribution: What percentage of total churn comes from early users
+
+USAGE TOOLS:
+- getUsageVsChurn: Usage patterns for churned vs retained users
+- getTopEngagedUsers: Top 10 most active users by event count
+- getAverageUsageChurnedUsers: Average usage per user for churned vs retained
+- getTopUsageUsersWithPlans: Top engaged users with their plan details
 
 A question is SUPPORTED if:
 - Required data can be obtained using these tools

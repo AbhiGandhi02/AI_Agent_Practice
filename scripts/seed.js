@@ -1,3 +1,4 @@
+require("dotenv").config();
 const fs = require("fs");
 const path = require("path");
 const csv = require("csv-parser");
@@ -6,7 +7,7 @@ const { faker } = require("@faker-js/faker");
 const { v4: uuidv4 } = require("uuid");
 
 const CSV_PATH = path.join(__dirname, "../data/telco_churn.csv");
-const BATCH_SIZE = 100; // Process records in batches (limit to avoid PostgreSQL param count)
+const BATCH_SIZE = 100; // Process records in batches
 
 async function ensurePlans() {
     await pool.query(`
@@ -209,7 +210,7 @@ async function processBatch(batch, plans) {
         }
 
         await client.query('COMMIT');
-        console.log(`✓ Processed batch of ${batch.length} records`);
+        console.log(`Processed batch of ${batch.length} records`);
 
     } catch (error) {
         await client.query('ROLLBACK');
@@ -220,7 +221,7 @@ async function processBatch(batch, plans) {
 }
 
 async function seedFromCSV() {
-    console.log("Starting optimized CSV-based seeding...");
+    console.log("Starting optimized CSV-based seeding");
     const startTime = Date.now();
 
     await ensurePlans();
@@ -256,14 +257,14 @@ async function seedFromCSV() {
     const endTime = Date.now();
     const duration = ((endTime - startTime) / 1000).toFixed(2);
 
-    console.log(`\n✅ CSV-based seeding completed successfully!`);
-    console.log(`📊 Total records: ${totalProcessed}`);
-    console.log(`⏱️  Time taken: ${duration} seconds`);
+    console.log(`\nCSV-based seeding completed successfully!`);
+    console.log(`Total records: ${totalProcessed}`);
+    console.log(`Time taken: ${duration} seconds`);
 
     process.exit(0);
 }
 
 seedFromCSV().catch(err => {
-    console.error("❌ Seeding failed:", err);
+    console.error("Seeding failed:", err);
     process.exit(1);
 });
